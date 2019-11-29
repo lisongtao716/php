@@ -1,4 +1,4 @@
-FROM php:fpm-alpine
+FROM php:7.3-fpm-alpine
 RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
     && apk add --no-cache freetype libjpeg-turbo libpng libssl1.1 libzip libpq \
     && apk add --no-cache --virtual .build-deps freetype-dev libjpeg-turbo-dev libpng-dev openssl-dev libzip-dev postgresql-dev \
