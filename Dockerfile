@@ -47,6 +47,8 @@ RUN sed -i -e "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list 
     && mv composer.phar /usr/local/bin/composer \
     && rm composer-setup.php \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && usermod -u 82 www-data \
+    && groupmod -g 82 www-data
 EXPOSE 9000
 CMD ["php-fpm7.3"]
